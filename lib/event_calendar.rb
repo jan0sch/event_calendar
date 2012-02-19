@@ -81,7 +81,7 @@ module EventCalendar
         if event.end_at
           end_date = event.end_at.to_date
         else
-          end_date = event.start_at.to_date + 1.hour
+          end_date = event.start_at.to_date
         end
         cur_date, end_date = event.clip_range(strip_start, strip_end)
         start_range = (cur_date - strip_start).to_i
@@ -166,7 +166,11 @@ module EventCalendar
     end
   
     def days
-      end_at.to_date - start_at.to_date
+      days = 0
+      if end_at
+        days = end_at.to_date - start_at.to_date
+      end
+      days
     end
   
     # start_d - start of the month, or start of the week
@@ -175,7 +179,11 @@ module EventCalendar
       # make sure we are comparing date objects to date objects,
       # otherwise timezones can cause problems
       start_at_d = start_at.to_date
-      end_at_d = end_at.to_date
+      if end_at
+        end_at_d = end_at.to_date
+      else
+        end_at_d = start_at.to_date
+      end
       # Clip start date, make sure it also ends on or after the start range
       if (start_at_d < start_d and end_at_d >= start_d)
         clipped_start = start_d
