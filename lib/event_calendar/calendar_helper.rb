@@ -232,7 +232,7 @@ module EventCalendar
                   cal << %(<div class="ec-left-arrow"></div>)
                 end
                 # add a right arrow if event is clipped at the end
-                if event.end_at.to_date > dates[1]
+                if event.end_at && event.end_at.to_date > dates[1]
                   cal << %(<div class="ec-right-arrow"></div>)
                 end
 
