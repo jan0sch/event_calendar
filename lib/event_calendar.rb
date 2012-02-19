@@ -78,7 +78,11 @@ module EventCalendar
     
       events.each do |event|
         cur_date = event.start_at.to_date
-        end_date = event.end_at.to_date
+        if event.end_at
+          end_date = event.end_at.to_date
+        else
+          end_date = event.start_at.to_date + 1.hour
+        end
         cur_date, end_date = event.clip_range(strip_start, strip_end)
         start_range = (cur_date - strip_start).to_i
         end_range = (end_date - strip_start).to_i
