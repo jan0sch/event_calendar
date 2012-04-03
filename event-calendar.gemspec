@@ -14,14 +14,14 @@ Gem::Specification.new do |s|
   s.email = %q{}
   s.extra_rdoc_files = [
     "CHANGELOG.rdoc",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     "CHANGELOG.rdoc",
     "Gemfile",
     "Gemfile.lock",
     "MIT-LICENSE",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
     "event-calendar.gemspec",
