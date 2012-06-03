@@ -17,7 +17,11 @@
 @import "themes/<%= EventCalendar.config.color_theme %>";
 @import "themes/default";
 
-$cal-width: <%= EventCalendar.config.cal_width %>;
+<% if EventCalendar.config.cal_width %>
+  $cal-width: <%= EventCalendar.config.cal_width %>;
+<% else %>
+  $cal-width: "600px"
+<% end %>
 
 
 /* Outer most container */
