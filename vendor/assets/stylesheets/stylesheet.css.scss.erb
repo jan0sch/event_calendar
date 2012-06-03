@@ -14,13 +14,15 @@
   #2eac6a - hover (green)
 */
 
-@import "themes/<%= EventCalendar.config.color_theme %>";
+<% if EventCalendar.config && EventCalendar.config.color_theme %>
+  @import "themes/<%= EventCalendar.config.color_theme %>";
+<% end %>
 @import "themes/default";
 
-<% if EventCalendar.config.cal_width %>
+<% if EventCalendar.config && EventCalendar.config.cal_width %>
   $cal-width: <%= EventCalendar.config.cal_width %>;
 <% else %>
-  $cal-width: "600px"
+  $cal-width: 400px;
 <% end %>
 
 
